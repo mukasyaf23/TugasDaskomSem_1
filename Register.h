@@ -1,5 +1,5 @@
 #include<stdio.h>
-
+#include<string.h>
 
 typedef struct {
 	char name[50];
@@ -7,6 +7,8 @@ typedef struct {
 	char type[50];
 	int balance;
 	int frequency;
+	char laundrystatus[50];
+	int gained;
 }Regist;
 
 FILE* file;
@@ -15,6 +17,8 @@ void Registerol() {
 	Regist register_user;
 	register_user.balance = 0;
 	register_user.frequency = 0;
+	register_user.gained = 0;
+	strcpy(register_user.laundrystatus, "0");
 	file = fopen("Data.bin", "ab");
 	if (file == NULL) {
 		printf("There is an error in reading the file");
